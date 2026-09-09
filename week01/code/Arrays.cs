@@ -13,7 +13,17 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        // Plan:
+        // 1. Create result array of the requested length.
+        // 2. Loop from i = 0 to length - 1.
+        // 3. Each element is number * (i + 1), so the first entry is number itself.
+        // 4. Store and return.
+        double[] result = new double[length];
+        for (int i = 0; i < length; i++)
+        {
+            result[i] = number * (i + 1); // i+1 so first multiple is 1x, not 0x
+        }
+        return result;
     }
 
     /// <summary>
@@ -29,5 +39,14 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        // Plan:
+        // 1. The last 'amount' items need to move to the front.
+        // 2. Grab those last 'amount' items.
+        // 3. Remove them from the end of the list.
+        // 4. Insert them at the beginning.
+        List<int> tail = data.GetRange(data.Count - amount, amount); // last 'amount' items
+        data.RemoveRange(data.Count - amount, amount);                // remove them from the end
+        data.InsertRange(0, tail);                                    // put them at the front
     }
 }
