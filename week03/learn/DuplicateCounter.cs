@@ -24,7 +24,17 @@
 
     private static int CountDuplicates(int[] data)
     {
-        // Add code here.
-        return 0;
+        var seen = new HashSet<int>();      // tracks numbers already encountered
+        var duplicates = new HashSet<int>(); // tracks numbers seen more than once (avoids double counting)
+
+        foreach (var number in data)
+        {
+            if (!seen.Add(number))        // Add returns false if number is already in the set
+            {
+                duplicates.Add(number);   // it's a duplicate; set ensures we only count it once
+            }
+        }
+
+        return duplicates.Count;
     }
 }
